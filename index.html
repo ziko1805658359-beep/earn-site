@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Earn Coins</title>
+</head>
+<body style="text-align:center; font-family:Arial; background:#111; color:white;">
+
+  <h1>Earn Coins</h1>
+  <h2 id="balance">Balance: 0</h2>
+
+  <button onclick="showAd()">Watch Ad</button>
+
+  <br><br>
+
+  <!-- Banner Ad -->
+  <script>
+    atOptions = {
+      'key' : 'e4d67b692b86f11c1cc5b46803cc7a56',
+      'format' : 'iframe',
+      'height' : 60,
+      'width' : 468,
+      'params' : {}
+    };
+  </script>
+  <script src="https://www.highperformanceformat.com/e4d67b692b86f11c1cc5b46803cc7a56/invoke.js"></script>
+
+  <br><br>
+
+  <!-- Square Ad -->
+  <script>
+    atOptions = {
+      'key' : '953cd28c81b3f678070007259b68b87c',
+      'format' : 'iframe',
+      'height' : 250,
+      'width' : 300,
+      'params' : {}
+    };
+  </script>
+  <script src="https://www.highperformanceformat.com/953cd28c81b3f678070007259b68b87c/invoke.js"></script>
+
+  <br><br>
+
+  <!-- Extra Ads -->
+  <script src="https://pl29030567.profitablecpmratenetwork.com/c1/af/ec/c1afec8b3c4fcd6c963679f6d10281db.js"></script>
+
+  <script src="https://pl29030569.profitablecpmratenetwork.com/ee/1d/84/ee1d84e7bad88ea4fbf89ab295cfdcf4.js"></script>
+
+  <script async="async" data-cfasync="false" src="https://pl29030583.profitablecpmratenetwork.com/b39431e0eb495b3788aff308b6600b42/invoke.js"></script>
+  <div id="container-b39431e0eb495b3788aff308b6600b42"></div>
+
+  <script>
+    let balance = 0;
+
+    const adLinks = [
+      "https://www.profitablecpmratenetwork.com/fykx453ta?key=13459b9e422bae6658bb3a88b3efe18f"
+    ];
+
+    function showAd() {
+      const randomAd = adLinks[Math.floor(Math.random() * adLinks.length)];
+      window.open(randomAd, "_blank");
+
+      balance += 10;
+      document.getElementById("balance").innerText = "Balance: " + balance;
+    }
+  </script>
+
+</body>
+</html>
