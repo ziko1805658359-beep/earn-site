@@ -9,7 +9,23 @@
   <h2 id="balance">Balance: 0</h2>
 
   <button onclick="showAd()">Watch Ad</button>
+<h2>Game: Click & Earn</h2>
+<button onclick="playGame()">Play Game</button>
 
+<script>
+  function playGame() {
+    let win = Math.random() < 0.5;
+
+    if (win) {
+      balance += 20;
+      alert("You Win! +20 coins 🎉");
+    } else {
+      alert("Try Again 😢");
+    }
+
+    document.getElementById("balance").innerText = "Balance: " + balance;
+  }
+</script>
   <br><br>
 
   <!-- Banner Ad -->
