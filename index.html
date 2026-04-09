@@ -1,84 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Earn Coins</title>
+  <title>Earn App</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #111;
+      color: white;
+      text-align: center;
+    }
+
+    .page {
+      display: none;
+      padding: 20px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #00ffcc;
+      font-size: 16px;
+    }
+
+    .bottom {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background: #222;
+      padding: 10px 0;
+    }
+  </style>
 </head>
-<body style="text-align:center; font-family:Arial; background:#111; color:white;">
 
-  <h1>Earn Coins</h1>
-  <h2 id="balance">Balance: 0</h2>
+<body>
 
-  <button onclick="showAd()">Watch Ad</button>
-<h2>Game: Click & Earn</h2>
-<button onclick="playGame()">Play Game</button>
+<h2 id="balance">Balance: 0</h2>
+
+<!-- HOME -->
+<div id="home" class="page active">
+
+  <h3>Join Channel & Earn</h3>
+  <button onclick="joinChannel()">Join & Earn +20</button>
+
+  <h3>Watch Ads</h3>
+  <button onclick="watchAd()">Watch Ad & Earn</button>
+
+  <p id="timer"></p>
+
+</div>
+
+<!-- REFER -->
+<div id="refer" class="page">
+  <h3>Refer & Earn</h3>
+  <p>Your referral system coming soon...</p>
+</div>
+
+<!-- PROFILE -->
+<div id="profile" class="page">
+  <h3>Profile</h3>
+  <p>Your balance:</p>
+  <h2 id="profileBalance">0</h2>
+</div>
+
+<!-- BOTTOM MENU -->
+<div class="bottom">
+  <button onclick="showPage('home')">Home</button>
+  <button onclick="showPage('refer')">Refer</button>
+  <button onclick="showPage('profile')">Profile</button>
+</div>
 
 <script>
-  function playGame() {
-    let win = Math.random() < 0.5;
+  let balance = 0;
 
-    if (win) {
-      balance += 20;
-      alert("You Win! +20 coins 🎉");
-    } else {
-      alert("Try Again 😢");
-    }
-
+  function updateBalance() {
     document.getElementById("balance").innerText = "Balance: " + balance;
+    document.getElementById("profileBalance").innerText = balance;
+  }
+
+  function showPage(page) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById(page).classList.add("active");
+  }
+
+  // 🔥 Channel Join
+  function joinChannel() {
+    window.open("https://t.me/yourchannel", "_blank"); // এখানে তোমার channel link বসাও
+    balance += 20;
+    alert("Joined! +20 coins");
+    updateBalance();
+  }
+
+  // 🔥 Watch Ad with Timer
+  function watchAd() {
+    let time = 15;
+    document.getElementById("timer").innerText = "Wait: " + time + " sec";
+
+    let interval = setInterval(() => {
+      time--;
+      document.getElementById("timer").innerText = "Wait: " + time + " sec";
+
+      if (time <= 0) {
+        clearInterval(interval);
+        balance += 10;
+        alert("Ad watched! +10 coins");
+        updateBalance();
+        document.getElementById("timer").innerText = "";
+      }
+    }, 1000);
+
+    window.open("https://www.profitablecpmratenetwork.com/fykx453ta?key=13459b9e422bae6658bb3a88b3efe18f", "_blank");
   }
 </script>
-  <br><br>
-
-  <!-- Banner Ad -->
-  <script>
-    atOptions = {
-      'key' : 'e4d67b692b86f11c1cc5b46803cc7a56',
-      'format' : 'iframe',
-      'height' : 60,
-      'width' : 468,
-      'params' : {}
-    };
-  </script>
-  <script src="https://www.highperformanceformat.com/e4d67b692b86f11c1cc5b46803cc7a56/invoke.js"></script>
-
-  <br><br>
-
-  <!-- Square Ad -->
-  <script>
-    atOptions = {
-      'key' : '953cd28c81b3f678070007259b68b87c',
-      'format' : 'iframe',
-      'height' : 250,
-      'width' : 300,
-      'params' : {}
-    };
-  </script>
-  <script src="https://www.highperformanceformat.com/953cd28c81b3f678070007259b68b87c/invoke.js"></script>
-
-  <br><br>
-
-  <!-- Extra Ads -->
-  <script src="https://pl29030567.profitablecpmratenetwork.com/c1/af/ec/c1afec8b3c4fcd6c963679f6d10281db.js"></script>
-
-  <script src="https://pl29030569.profitablecpmratenetwork.com/ee/1d/84/ee1d84e7bad88ea4fbf89ab295cfdcf4.js"></script>
-
-  <script async="async" data-cfasync="false" src="https://pl29030583.profitablecpmratenetwork.com/b39431e0eb495b3788aff308b6600b42/invoke.js"></script>
-  <div id="container-b39431e0eb495b3788aff308b6600b42"></div>
-
-  <script>
-    let balance = 0;
-
-    const adLinks = [
-      "https://www.profitablecpmratenetwork.com/fykx453ta?key=13459b9e422bae6658bb3a88b3efe18f"
-    ];
-
-    function showAd() {
-      const randomAd = adLinks[Math.floor(Math.random() * adLinks.length)];
-      window.open(randomAd, "_blank");
-
-      balance += 10;
-      document.getElementById("balance").innerText = "Balance: " + balance;
-    }
-  </script>
 
 </body>
 </html>
